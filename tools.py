@@ -261,8 +261,8 @@ def send_video(text:str):
     Args:
         text - The message to send to developer
     """
-    token = '5994700267:AAGRpV-0LN4dh19i3jrzzHpCHmYXFFEoW68'
-    chatId = '1152614079'
+    token = 'yout-bot-token-here'
+    chatId = 'your-chat-id-here'
 
     send_msg_url = f"https://api.telegram.org/bot{token}/sendMessage"
 
