@@ -1,0 +1,11 @@
+requests
+langgraph
+langchain
+pytubefix
+dotenv
+pysrt
+pydantic
+datetime
+langchain_google_genai
+langchain_community
+youtube_search
