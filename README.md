@@ -17,6 +17,28 @@ The system operates as a sophisticated pipeline, orchestrated by LangGraph:
    - 9:16 aspect ratio is applied with a blurred background for Shorts-style viewing
 - Post Video: Uploads each generated video clip to YouTube with its AI-generated metadata.
 - Clean Up & Loop: Clears local data and marks the original podcast as "burnt" (processed) before initiating the next cycle.
+## Flow
+```mermaid
+graph TD
+    A[Start: Search Podcasts] --> B[Select Best Podcast via LLM]
+    B -->|Valid Podcast Found| C[Process Video - Transcript Extraction]
+    B -->|No Suitable Podcast| BB[Retry with Different Filter]
+    BB --> A
+
+    C --> D[Fetch Clips - LLM Identifies Moments]
+    D --> E[Edit Video - Trim & Burn Captions]
+    E --> F[Post Clips to YouTube]
+    F --> G[Clean Up & Mark Podcast as Processed]
+    G --> A
+
+    subgraph Error Handling
+        B --> X[Error Handler]
+        C --> X
+        D --> X
+        E --> X
+        F --> X
+    end
+```
 
 
 ### 🛠️ Tech Stack
